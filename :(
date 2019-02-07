@@ -1,0 +1,32 @@
+import random
+
+subjects = ['COUNT', 'STRANGER', 'LOOK', 'CHURCH', 'CASTLE', 'PICTURE',
+            'EYE', 'VILLAGE', 'TOWER', 'FARMER', 'WAY', 'GUEST', 'DAY',
+            'HOUSE', 'TABLE', 'LABOURER']
+random.seed(2)
+random_item = random.choice(subjects)
+
+from random import randrange
+def choice(L):
+    random_indx = randrange(len(L))
+    return random_indx
+
+predicates = ['OPEN', 'SILENT', 'STRONG', 'GOOD', 'NARROW', 'NEAR',
+              'NEW', 'QUIET', 'FAR', 'DEEP', 'LATE', 'DARK', 'FREE',
+              'LARGE', 'OLD', 'ANGRY']
+conjunctions = [' AND ', ' OR ', ' THEREFORE ', '. ', '. ', '. ', '. ', '. ']
+operators = ['A', 'EVERY', 'NO', 'NOT EVERY']
+
+def phrase():
+    text = choice(operators) +' ' + choice(subjects)
+    if text == 'A EYE':
+        text = 'AN EYE'
+    return text , ' IS '
+
+print('')
+print(random_item)
+random.seed(2)
+random_item = random.choice(subjects)
+while(random.seed(2)): print( phrase() + choice(predicates) + choice(conjunctions) + phrase () + choice(predicates) + '.')
+print(phrase() + choice(predicates) + choice(conjunctions) +
+       phrase() + choice(predicates) + '.')
